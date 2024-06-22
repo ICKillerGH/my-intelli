@@ -21,6 +21,8 @@ composer install
 cp .env.example .env
 
 php artisan key:generate
+
+php artisan storage:link
 ```
 
 Update database credentials in the .env file
