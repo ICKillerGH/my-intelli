@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\UserCreated;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,6 +15,10 @@ class Book extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $dispatchesEvents = [
+        'created' => UserCreated::class,
+    ];
 
     public function frontPage(): Attribute
     {
