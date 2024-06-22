@@ -12,14 +12,19 @@ Route::controller(AuthController::class)->group(function() {
     Route::post('/refresh', 'refresh')->name('refresh')->middleware('auth');
 });
 
-Route::resource('users', UserController::class)
-    ->except(['create', 'edit'])
-    ->middleware('auth');
+Route::middleware('auth')->group(function() {
+    Route::resource('users', UserController::class)
+        ->except(['create', 'edit']);
 
-Route::resource('authors', AuthorController::class)
-    ->except(['create', 'edit'])
-    ->middleware('auth');
-    
-Route::resource('books', BookController::class)
-    ->except(['create', 'edit'])
-    ->middleware('auth');
+    Route::get('authors/export', [AuthorController::class, 'export'])
+        ->name('authors.export');
+
+    Route::resource('authors', AuthorController::class)
+        ->except(['create', 'edit']);
+        
+    Route::get('books/export', [BookController::class, 'export'])
+        ->name('books.export');
+
+    Route::resource('books', BookController::class)
+        ->except(['create', 'edit']);
+});

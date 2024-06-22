@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AuthorsExport;
 use App\Models\Author;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
 use App\Http\Resources\AuthorResource;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AuthorController extends Controller
 {
@@ -54,5 +56,10 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
         $author->delete();
+    }
+
+    public function export()
+    {
+        return Excel::download(new AuthorsExport, 'authors.xlsx');
     }
 }
