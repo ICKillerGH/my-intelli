@@ -36,3 +36,7 @@ php artisan db:seed
 You can login with the following credentials:
 email: test@example.com
 password: password
+
+## API Documentation
+
+[Postam Docs](https://documenter.getpostman.com/view/12742247/2sA3XWcyZH)
