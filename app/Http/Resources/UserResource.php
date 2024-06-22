@@ -21,4 +21,12 @@ class UserResource extends JsonResource
             'created_at' => $this->created_at,
         ];
     }
+
+    public static function withToken($user, $token)
+    {
+        return (new static($user))
+            ->additional([
+                'accessToken' => $token
+            ]);
+    }
 }
