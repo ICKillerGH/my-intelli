@@ -26,7 +26,7 @@ class UserResource extends JsonResource
     {
         return (new static($user))
             ->additional([
-                'accessToken' => $token
+                'access_token' => $token
             ]);
     }
 }
