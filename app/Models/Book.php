@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Events\UserCreated;
+use App\Events\BookCreated;
+use App\Events\BookDeleted;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,14 +18,17 @@ class Book extends Model
     protected $guarded = [];
 
     protected $dispatchesEvents = [
-        'created' => UserCreated::class,
+        'created' => BookCreated::class,
+        'deleted' => BookDeleted::class
     ];
 
     public function frontPage(): Attribute
     {
         return new Attribute(
             get: fn (string $value) => asset(Storage::url($value)),
-            set: fn (string|UploadedFile $value) => $value instanceof UploadedFile ? $value->storePublicly('public/books') : $value
+            set: fn (string|UploadedFile $value) => $value instanceof UploadedFile
+                ? $value->storePublicly('public/books')
+                : $value
         );
     }
 
