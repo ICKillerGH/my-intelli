@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('isbn')->unique();
             $table->string('front_page');
             $table->text('synopsis');
-            $table->date('number_of_pages');
-            $table->string('published_at');
+            $table->integer('number_of_pages');
+            $table->date('published_at');
             $table->foreignId('author_id')->constrained('authors')->cascadeOnDelete();
             $table->timestamps();
         });
