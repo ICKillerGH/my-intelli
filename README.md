@@ -11,6 +11,14 @@
 -   PHP extension php_xmlreader enabled
 -   PHP extension php_zlib enabled
 
+## Postgres installation
+
+Having docker up and running run
+
+```bash
+docker-compose up -d
+```
+
 ## Installation
 
 git clone https://github.com/ICKillerGH/my-intelli.git
