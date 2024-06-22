@@ -2,12 +2,12 @@
 
 namespace App\Listeners;
 
-use App\Events\UserCreated;
+use App\Events\BookCreated;
 use App\Jobs\IncrementAuthorBooksCount;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class UserCreatedListener
+class BookCreatedListener
 {
     /**
      * Create the event listener.
@@ -20,7 +20,7 @@ class UserCreatedListener
     /**
      * Handle the event.
      */
-    public function handle(UserCreated $event): void
+    public function handle(BookCreated $event): void
     {
         IncrementAuthorBooksCount::dispatch($event->book->author);
     }
