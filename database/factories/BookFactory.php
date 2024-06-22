@@ -19,7 +19,7 @@ class BookFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'isbn' => $this->faker->isbn13(),
-            'front_page' => "/books/front_page_example.jpg",
+            'front_page' => "books/front_page_example.jpg",
             'synopsis' => $this->faker->paragraphs(5, true),
             'number_of_pages' => $this->faker->numberBetween(100, 1000),
             'published_at' => $this->faker->date('Y-m-d'),
