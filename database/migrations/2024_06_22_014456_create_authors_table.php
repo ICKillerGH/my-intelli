@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->date('birthdate');
+            $table->integer('books_count')->default(0);
             $table->timestamps();
         });
     }
