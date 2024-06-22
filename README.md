@@ -39,4 +39,4 @@ password: password
 
 ## API Documentation
 
-[Postam Docs](https://documenter.getpostman.com/view/12742247/2sA3XWcyZH)
+[Postmam Docs](https://documenter.getpostman.com/view/12742247/2sA3XWcyZH)
